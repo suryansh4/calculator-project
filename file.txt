@@ -1,0 +1,20 @@
+const express= require(`express`);
+var bodyParser=require(`body-parser`);
+
+const fs=require(`fs`);
+const app=express();
+app.use(bodyParser.urlencoded({extended: true}));
+const port=8000;
+app.get(`/`,function(req,res){
+    res.sendFile(__dirname +`/index.html`);
+})
+app.listen(port,function(){
+    console.log(`server is running`);
+})
+app.post(`/`,function(req,res){
+    console.log(req.body);
+ let num1=req.body.num1
+ let num2=req.body.num2;
+let result=num1+num2;
+    res.send(`thanks for entering the ifhjsdopfisdnfl.ksdadj data${result}`);
+})
